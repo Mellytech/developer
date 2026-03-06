@@ -345,6 +345,19 @@ function debounce(func, delay) {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
+    // responsive menu toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const navElement = document.querySelector('nav');
+    if (menuToggle && navElement) {
+        menuToggle.addEventListener('click', () => {
+            navElement.classList.toggle('open');
+        });
+        // close menu after selecting a link
+        navElement.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => navElement.classList.remove('open'));
+        });
+    }
+
     const currentYear = document.getElementById('current-year');
     if (currentYear) {
         currentYear.textContent = new Date().getFullYear();
