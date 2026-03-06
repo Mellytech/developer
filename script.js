@@ -219,6 +219,7 @@ function debounce(func, delay) {
     };
 
     const renderResources = (filter = '', category = 'All', tag = '') => {
+        console.log('renderResources called with:', { filter, category, tag });
         resourceCardsContainer.innerHTML = '';
         let filteredResources = resources;
 
@@ -228,15 +229,20 @@ function debounce(func, delay) {
         if (tag) {
             filteredResources = filteredResources.filter(r => r.tags.includes(tag));
         }
+        console.log('Resources after category/tag filter:', filteredResources);
+
         if (filter) {
+            console.log('Applying filter:', filter);
             filteredResources = filteredResources.filter(r =>
                 r.name.toLowerCase().includes(filter) ||
                 r.description.toLowerCase().includes(filter) ||
                 r.tags.some(t => t.toLowerCase().includes(filter))
             );
         }
+        console.log('Resources after text filter:', filteredResources);
 
         filteredResources.forEach(resource => {
+            console.log('Creating card for:', resource.name);
             resourceCardsContainer.appendChild(createResourceCard(resource));
         });
     };
@@ -327,8 +333,11 @@ function debounce(func, delay) {
     }
 
     searchBar.addEventListener('input', () => {
+        console.log("input triggered");
+        console.log('Search input detected');
         const activeCategory = document.querySelector('.category-filter.active').dataset.category;
         renderResources(searchBar.value.toLowerCase(), activeCategory);
+        window.location.href = '#resources';
     });
 
     document.getElementById('back-to-top')?.addEventListener('click', (e) => {
