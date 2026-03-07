@@ -2,31 +2,79 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description" content="Discover amazing developer resources, tools, and tutorials to accelerate your development journey.">
+    <meta name="keywords" content="developer resources, programming tools, coding tutorials, web development, design tools">
+    <meta name="author" content="MellyTech">
+    <meta property="og:title" content="Developer Resource Hub">
+    <meta property="og:description" content="Discover amazing developer resources, tools, and tutorials">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
     <title>Developer Resource Hub</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles-new.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <header>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header role="banner">
         <div class="header-container">
             <h1 class="website-title">DevResources</h1>
             <!-- hamburger button appears on small screens -->
-            <button id="menu-toggle" class="menu-toggle" aria-label="Toggle menu">
+            <button id="menu-toggle" class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="main-navigation">
                 <i class="fas fa-bars"></i>
             </button>
-            <nav>
-                <a href="#resources">All Resources</a>
-                <a href="#favorites">Favorites</a>
+            <nav class="main-nav" id="main-navigation" role="navigation" aria-label="Main navigation">
+                <div class="nav-left">
+                    <a href="#home" class="nav-link active" aria-current="page">Home</a>
+                    <div class="nav-dropdown">
+                        <a href="#resources" class="nav-link dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+                            Resources <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <div class="dropdown-menu" role="menu">
+                            <a href="#trending-resources" class="dropdown-item" role="menuitem">Trending</a>
+                            <a href="#tutorials" class="dropdown-item" role="menuitem">Tutorials</a>
+                            <a href="#categories" class="dropdown-item" role="menuitem">Categories</a>
+                            <a href="#resources" class="dropdown-item" role="menuitem">All Resources</a>
+                        </div>
+                    </div>
+                    <a href="#favorites" class="nav-link">Favorites</a>
+                </div>
+                <div class="nav-right">
+                    <button class="theme-toggle" aria-label="Toggle theme between light and dark mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
             </nav>
-            <div class="search-container">
-                <input type="text" id="search-bar" placeholder="Search resources...">
+            <div class="search-container" role="search">
+                <input type="text" id="search-bar" placeholder="Search resources..." aria-label="Search developer resources">
             </div>
         </div>
     </header>
 
-    <main>
+    <main role="main" id="main-content">
+        <!-- Hero Section -->
+        <section class="hero" role="banner">
+            <div class="hero-content">
+                <h1 class="hero-title">Discover Amazing Developer Resources</h1>
+                <p class="hero-subtitle">Find the best tools, tutorials, and resources to accelerate your development journey</p>
+                <div class="hero-stats" role="group" aria-label="Platform statistics">
+                    <div class="stat">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Resources</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">15+</span>
+                        <span class="stat-label">Categories</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Free</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="trending-resources">
             <h2>Trending Tools</h2>
             <div class="trending-container">
@@ -65,13 +113,67 @@
 
     <footer>
         <div class="footer-container">
-            <div class="social-links">
-                <a href="https://github.com/Mellytech" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                <a href="https://wa.me/233531688968" aria-label="Whatsapp"><i class="fab fa-whatsapp"></i></a>
-                 <a href="#" aria-label="Twitter"><i class="fab fa-linkedin"></i></a>
+            <div class="footer-section">
+                <h3 class="footer-title">DevResources</h3>
+                <p class="footer-description">
+                    Your comprehensive hub for developer tools, tutorials, and resources. 
+                    Discover everything you need to accelerate your development journey.
+                </p>
+                <div class="footer-social">
+                    <a href="https://github.com/Mellytech" aria-label="GitHub" class="social-icon">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://wa.me/233531688968" aria-label="WhatsApp" class="social-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="#" aria-label="LinkedIn" class="social-icon">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="#" aria-label="Twitter" class="social-icon">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
             </div>
-            <p>&copy; <span id="current-year">2026</span> Developer Resource Hub. All Rights Reserved.<br><span class="developer-credit">Developed by MellyTech</span></p>
-            <a href="#" id="back-to-top">Back to Top &uarr;</a>
+            
+            <div class="footer-section">
+                <h3 class="footer-title">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#trending-resources">Trending Tools</a></li>
+                    <li><a href="#tutorials">Coding Tutorials</a></li>
+                    <li><a href="#categories">Categories</a></li>
+                    <li><a href="#resources">All Resources</a></li>
+                    <li><a href="#favorites">My Favorites</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3 class="footer-title">Categories</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Developer Utilities</a></li>
+                    <li><a href="#">UI/UX Inspiration</a></li>
+                    <li><a href="#">CSS Tools</a></li>
+                    <li><a href="#">Coding Tutorials</a></li>
+                    <li><a href="#">Backend Tools</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3 class="footer-title">Newsletter</h3>
+                <p class="footer-description">
+                    Subscribe to get the latest resources and updates.
+                </p>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Enter your email" class="newsletter-input">
+                    <button type="submit" class="newsletter-btn">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; <span id="current-year">2026</span> Developer Resource Hub. All Rights Reserved.</p>
+                    <p class="developer-credit">Developed by MellyTech</p>
+                    <a href="#" id="back-to-top">Back to Top &uarr;</a>
+                </div>
+            </div>
         </div>
     </footer>
 
